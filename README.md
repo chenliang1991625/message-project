@@ -1,1 +1,1 @@
-# message-project
+# 通过redis和rabbitMQ实现用户注册验证码验证
