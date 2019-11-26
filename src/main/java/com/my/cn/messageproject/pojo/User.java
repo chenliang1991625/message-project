@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Table(name="user") //建立实体类和表的映射关系
 public class User {
     @Id//声明当前私有属性为主键
-    @GeneratedValue(strategy= GenerationType.IDENTITY) //配置主键的生成策略
+//    @GeneratedValue(strategy= GenerationType.IDENTITY) //配置主键的生成策略 //由IdWorker.idWorker.nextId()生成，不用自增
     @Column(name="uid") //指定和表中cust_id字段的映射关系
     private Integer uid;
     private String userName;

@@ -36,7 +36,7 @@ public class UserService {
         code = code + min;
         System.out.println(mobile + "收到验证码是：" + code);
         //2.将验证码放入redis
-        redisTemplate.opsForValue().set("smscode_"+mobile, code+"23" ,20, TimeUnit.MINUTES );
+        redisTemplate.opsForValue().set("smscode_"+mobile, code+"", 10, TimeUnit.MINUTES);
 //五分钟过期 //3.将验证码和手机号发动到rabbitMQ中
         Map<String, String> map = new HashMap();
         map.put("mobile", mobile);
@@ -48,17 +48,16 @@ public class UserService {
     /*** 增加 * @param user 用户 * @param code 用户填写的验证码 */
     public void add(User user, String code) {
 //判断验证码是否正确
-String syscode = (String)redisTemplate.opsForValue().get("smscode_" + user.getMobile()); //提取系统正确的验证码
-        System.out.println("com.my.cn.messageproject.service.UserService.add:"+syscode);
-        if (syscode == null) {
-            throw new RuntimeException("请点击获取短信验证码");
-        }
-        if (!syscode.equals(code)) {
-            throw new RuntimeException("验证码输入不正确");
-        }
-//        user.setUid((int) idWorker.nextId());
-        user.setUid(1223);
+        String syscode =(String) redisTemplate.opsForValue().get("smscode_"+ user.getMobile()); //提取系统正确的验证码
+            if (syscode == null) {
+                throw new RuntimeException("请点击获取短信验证码:" + syscode);
+            }
+            if (!syscode.equals(code)) {
+                throw new RuntimeException("验证码输入不正确");
+            }
+            user.setUid((int) idWorker.nextId());
+//        user.setUid(1223);
 //最后登陆日期
-        userDao.save(user);
+            userDao.save(user);
+        }
     }
-}

@@ -14,10 +14,10 @@ public class UserController {
 
     /*** 发送短信验证码 * @param mobile
      * @return*/
-    @RequestMapping(value = "/sendsms/{mobile}", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendsms/{mobile}", method = RequestMethod.POST,consumes = "application/json")
     public Result<String> sendsms(@PathVariable String mobile) {
-        userService.sendSms(mobile);
         System.out.println("进入UserController.sendsms发送短息:啊哈哈哈哈哈哈哈哈哈或或或！！！！");
+        userService.sendSms(mobile);
         return new Result<String>(true, StatusCode.OK, "发送成功");
     }
 

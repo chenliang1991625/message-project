@@ -61,16 +61,12 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
         <!--end redis-->
-        <!--begin rabbitMQ-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- spring data jpa 的坐标-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -80,9 +76,22 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <!-- spring data jpa 的坐标-->
+        <!--begin rabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
         <!--end rabbitMQ-->
 
-        <!-- spring data jpa 的坐标-->
         <!-- hibernate beg -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -92,7 +101,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
+<!--            <version>${hibernate.version}</version>-->
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -100,12 +109,12 @@
             <version>5.2.1.Final</version>
         </dependency>
 
-
-        <dependency>
+<!--前面已加入spring-boot-starter-test依赖,在加入spring test测试或运行会出错-->
+       <!-- <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!-- el beg 使用spring data jpa 必须引入 -->
         <dependency>
@@ -147,6 +156,23 @@
             <version>${slf4j.version}</version>
         </dependency>
          <!--log end-->
+        <!--begin aliyun message-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.4.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-ecs</artifactId>
+            <version>4.17.6</version>
+        </dependency>
+        <!--end aliyun message-->
     </dependencies>
 
     <build>

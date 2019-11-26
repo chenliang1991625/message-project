@@ -1,4 +1,9 @@
 spring:
+  #指定服务名
+  application:
+    name: message-service
+  server:
+    port: 8080
   #redis配置
   redis:
     #Redis服务器地址
@@ -20,7 +25,7 @@ spring:
     #连接超时时间（毫秒）
     timeout: 5000
     
-#  rabbitMQ
+#  rabbitMQ配置
   rabbitmq:
     host: 192.168.1.10
   devtools:
@@ -36,9 +41,12 @@ spring:
     hibernate:
       ddl-auto: update  # 第一次建表create  后面用update，要不然每次重启都会新建表
     show-sql: true
-  application:
-    name: message-service
-server:
-  port: 8080
-
 #  原文链接：https://blog.csdn.net/zhuzhezhuzhe1/article/details/80561449
+#阿里云短信服务，为了动态配置这些值,不至于硬编码
+aliyun:
+  sms:
+    accessKeyId:
+    accessKeySecret:
+    template_code: 模板编码
+    sign_name: 签名
+
