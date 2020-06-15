@@ -106,7 +106,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.2.1.Final</version>
+            <version>5.3.5.Final</version>
         </dependency>
 
 <!--前面已加入spring-boot-starter-test依赖,在加入spring test测试或运行会出错-->
